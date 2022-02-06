@@ -1,6 +1,7 @@
 package breyault.airbnb.reservations;
 
 import breyault.airbnb.logements.Logement;
+import breyault.airbnb.outils.Utile;
 
 import java.util.Date;
 
@@ -20,7 +21,7 @@ public class Sejour {
     public void afficher() {
         this.logement.afficher();
         System.out.println(
-            "La date d'arrivée est le " + this.dateArrivee +
+            "La date d'arrivée est le " + Utile.buildDateString(this.dateArrivee) +
             " pour " + this.nbNuits + " nuit" + this.pluralManager(this.nbNuits) + "."
         );
         System.out.println("Le prix de ce séjour est de : " + (this.nbNuits * this.logement.getTarifParNuit() + "€."));
