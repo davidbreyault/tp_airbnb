@@ -2,7 +2,7 @@ package breyault.airbnb.logements;
 
 import breyault.airbnb.utilisateurs.Hote;
 
-public class Logement {
+public abstract class Logement {
     private Hote hote;
     private int tarifParNuit;
     private String adresse;
@@ -21,10 +21,15 @@ public class Logement {
         return tarifParNuit;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public int getSuperficie() {
+        return superficie;
+    }
+
     public void afficher() {
         this.hote.afficher();
-        System.out.println("\nLe logement est situé " + this.adresse + ".");
-        System.out.println("Superficie : " + this.superficie + "m2.");
-
     }
 }
