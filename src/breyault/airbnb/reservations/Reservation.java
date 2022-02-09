@@ -1,17 +1,17 @@
 package breyault.airbnb.reservations;
 
-import breyault.airbnb.utilisateurs.Personne;
+import breyault.airbnb.utilisateurs.Voyageur;
 
 import java.util.Date;
 
 public class Reservation {
     private int identifiant;
     private Sejour sejour;
-    private Personne voyageur;
+    private Voyageur voyageur;
     private boolean estValidee;
     private Date dateDeReservation;
 
-    public Reservation(Sejour sejour, Personne voyageur) {
+    public Reservation(Sejour sejour, Voyageur voyageur) {
         this.sejour = sejour;
         this.voyageur = voyageur;
     }
