@@ -3,6 +3,7 @@ package breyault.airbnb;
 import breyault.airbnb.logements.Appartement;
 import breyault.airbnb.logements.Logement;
 import breyault.airbnb.logements.Maison;
+import breyault.airbnb.outils.MaDate;
 import breyault.airbnb.outils.Utile;
 import breyault.airbnb.reservations.Reservation;
 import breyault.airbnb.reservations.Sejour;
@@ -23,8 +24,7 @@ public class Main {
         Logement appartement = new Appartement(david, 88, "20 avenue de la Mer, 17200, ROYAN", 68, 4, 1, 12);
 
         // Dates
-        Date date = new Date(2022, 02, 12);
-        Date date2 = Utile.buildDateObject(2022, 12, 02);
+        MaDate date = new MaDate(2022, 9, 2);
 
         // Séjours
         Sejour sejour = new Sejour(date, 2, appartement, 2);
