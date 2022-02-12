@@ -16,10 +16,15 @@ public abstract class Sejour implements SejourInterface {
         this.nbNuits = nbNuits;
         this.logement = logement;
         this.nbVoyageurs = nbVoyageurs;
+        this.miseAJourDuTarif();
     }
 
     public int getNbNuits() {
         return nbNuits;
+    }
+
+    public Logement getLogement() {
+        return logement;
     }
 
     @Override
@@ -43,4 +48,6 @@ public abstract class Sejour implements SejourInterface {
     public String pluralManager(int number) {
         return number > 1 ? "s" : "";
     }
+
+    public abstract void miseAJourDuTarif();
 }
