@@ -4,11 +4,12 @@ import breyault.airbnb.logements.Logement;
 
 import java.util.Date;
 
-public class Sejour implements SejourInterface {
+public abstract class Sejour implements SejourInterface {
     private Date dateArrivee;
     private int nbNuits;
     private Logement logement;
     private int nbVoyageurs;
+    protected int tarif;
 
     public Sejour(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
         this.dateArrivee = dateArrivee;
@@ -17,14 +18,13 @@ public class Sejour implements SejourInterface {
         this.nbVoyageurs = nbVoyageurs;
     }
 
-    @Override
-    public boolean verificationDateArrivee() {
-        return this.dateArrivee.after(new Date());
+    public int getNbNuits() {
+        return nbNuits;
     }
 
     @Override
-    public boolean verificationNombreDeNuits() {
-        return this.nbNuits > 1 && this.nbNuits <= 31;
+    public boolean verificationDateArrivee() {
+        return this.dateArrivee.after(new Date());
     }
 
     @Override
