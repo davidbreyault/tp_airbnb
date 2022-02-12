@@ -15,7 +15,7 @@ public class Menu {
 
     static Scanner scanner;
 
-    //static ArrayList<Hote> listHotes;
+    static ArrayList<Hote> listHotes = new ArrayList<Hote>();
     //static ArrayList<Logement> listLogements;
     //static ArrayList<Voyageur> listVoyageurs;
     //static ArrayList<Reservation> listReservations;
