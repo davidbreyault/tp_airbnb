@@ -6,6 +6,8 @@ import breyault.airbnb.logements.Maison;
 import breyault.airbnb.outils.MaDate;
 import breyault.airbnb.reservations.Reservation;
 import breyault.airbnb.reservations.Sejour;
+import breyault.airbnb.reservations.SejourCourt;
+import breyault.airbnb.reservations.SejourLong;
 import breyault.airbnb.utilisateurs.Hote;
 import breyault.airbnb.utilisateurs.Voyageur;
 
@@ -26,7 +28,7 @@ public class Main {
         MaDate date = new MaDate(2022, 9, 2);
 
         // Séjours
-        Sejour sejour = new Sejour(date, 2, appartement, 2);
+        Sejour sejour = new SejourLong(date, 7, appartement, 2);
 
         // Réservations
         Reservation reservation = new Reservation(sejour, jean);

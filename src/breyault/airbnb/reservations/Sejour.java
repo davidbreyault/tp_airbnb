@@ -1,7 +1,6 @@
 package breyault.airbnb.reservations;
 
 import breyault.airbnb.logements.Logement;
-import breyault.airbnb.outils.Utile;
 
 import java.util.Date;
 
@@ -30,16 +29,15 @@ public class Sejour implements SejourInterface {
 
     @Override
     public boolean verificationNombreDeVoyageurs() {
-        return this.nbVoyageurs <= this.logement.getNbVoyageursMax();
+        return this.nbVoyageurs > 0 && this.nbVoyageurs <= this.logement.getNbVoyageursMax();
     }
 
     public void afficher() {
         this.logement.afficher();
         System.out.println(
-            "La date d'arrivée est le " + Utile.buildDateString(this.dateArrivee) +
+            "La date d'arrivée est le " + this.dateArrivee.toString() +
             " pour " + this.nbNuits + " nuit" + this.pluralManager(this.nbNuits) + "."
         );
-        System.out.println("Le prix de ce séjour est de : " + (this.nbNuits * this.logement.getTarifParNuit() + "€."));
     }
 
     public String pluralManager(int number) {
