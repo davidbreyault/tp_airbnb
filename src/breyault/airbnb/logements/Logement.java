@@ -32,4 +32,8 @@ public abstract class Logement {
     public void afficher() {
         this.hote.afficher();
     }
+
+    public int getNbVoyageursMax() {
+        return nbVoyageursMax;
+    }
 }

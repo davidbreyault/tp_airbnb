@@ -4,7 +4,6 @@ import breyault.airbnb.logements.Appartement;
 import breyault.airbnb.logements.Logement;
 import breyault.airbnb.logements.Maison;
 import breyault.airbnb.outils.MaDate;
-import breyault.airbnb.outils.Utile;
 import breyault.airbnb.reservations.Reservation;
 import breyault.airbnb.reservations.Sejour;
 import breyault.airbnb.utilisateurs.Hote;
