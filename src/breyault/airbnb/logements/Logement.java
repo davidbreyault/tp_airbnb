@@ -3,13 +3,15 @@ package breyault.airbnb.logements;
 import breyault.airbnb.utilisateurs.Hote;
 
 public abstract class Logement {
+    private String nom;
     private Hote hote;
     private int tarifParNuit;
     private String adresse;
     private int superficie;
     private int nbVoyageursMax;
 
-    public Logement(Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax) {
+    public Logement(String nom, Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax) {
+        this.nom = nom;
         this.hote = hote;
         this.tarifParNuit = tarifParNuit;
         this.adresse = adresse;

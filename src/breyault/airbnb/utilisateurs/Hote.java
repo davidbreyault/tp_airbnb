@@ -19,4 +19,12 @@ public class Hote extends Personne {
             System.out.print("l'heure.");
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || o.getClass() != this.getClass()) return false;
+        Hote hote = (Hote) o;
+        return super.equals(o) && delaiDeReponse == hote.delaiDeReponse;
+    }
 }
