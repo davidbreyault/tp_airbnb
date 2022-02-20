@@ -19,6 +19,10 @@ public abstract class Logement {
         this.nbVoyageursMax = nbVoyageursMax;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
     public int getTarifParNuit() {
         return tarifParNuit;
     }

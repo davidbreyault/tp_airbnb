@@ -126,4 +126,46 @@ public class Menu {
 		listVoyageurs.add(voyageur2);
 	}
 */
+
+    public static Maison findMaisonByName(String nomMaison) throws NullPointerException {
+        Maison maison = null;
+        for (int i = 0; i < listLogements.size(); i++) {
+            if (nomMaison.equals(listLogements.get(i).getNom())) {
+                return (Maison) listLogements.get(i);
+            }
+        }
+        return maison;
+    }
+
+    public static Appartement findAppartmentByName(String nomAppartement) throws NullPointerException {
+        Appartement appartement = null;
+        for (int i = 0; i < listLogements.size(); i++) {
+            if (nomAppartement.equals(listLogements.get(i).getNom())) {
+                return (Appartement) listLogements.get(i);
+            }
+        }
+        return appartement;
+    }
+
+    public static Logement findLogementByName(String nomLogement) throws NullPointerException {
+        Logement logement = null;
+        for (int i = 0; i < listLogements.size(); i++) {
+            if (nomLogement.equals(listLogements.get(i).getNom())) {
+                return listLogements.get(i);
+            }
+        }
+        return  logement;
+    }
+
+    public static <T extends Logement> T findLogementByNameWithGenericity(String nomLogement) throws NullPointerException {
+        T logement = null;
+        for (int i = 0; i < listLogements.size(); i++) {
+            if (nomLogement.equals(listLogements.get(i).getNom())) {
+                return (T) listLogements.get(i);
+            }
+        }
+        return logement;
+    }
+
+
 }

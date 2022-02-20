@@ -48,12 +48,41 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("Nombre d'hôtes : " + Menu.listHotes.size());
-        System.out.println("Nombre de logements : " + Menu.listLogements.size() + "\n");
+//        System.out.println("Nombre d'hôtes : " + Menu.listHotes.size());
+//        System.out.println("Nombre de logements : " + Menu.listLogements.size() + "\n");
+//
+//        for (int i = 0; i < Menu.listLogements.size(); i++) {
+//            Menu.listLogements.get(i).afficher();
+//            System.out.println("");
+//        }
 
-        for (int i = 0; i < Menu.listLogements.size(); i++) {
-            Menu.listLogements.get(i).afficher();
-            System.out.println("");
+        // Test TP 7 - 1.1
+        System.out.println("Recherche : ");
+        try {
+            Menu.findMaisonByName("Maison 9").afficher();
+        } catch (NullPointerException e) {
+            System.err.println("Ce logement n'existe pas !");
         }
+
+        // Test TP 7 - 1.2
+        Logement maison8 = Menu.findLogementByName("Maison 1");
+        Maison maison9 = (Maison) Menu.findLogementByName("Maison 1");
+
+        // Test TP 7 - 1.3
+        Appartement appartement3 = Menu.findLogementByNameWithGenericity("Appartement 3");
+        appartement3.afficher();
+
+        /*
+
+        La première méthode consiste à créer une méthode 'find' pour chaque classe héritant de Logement :
+        Si cela fonctionne, cela posera vite des problèmes de maintenabilité.
+        Et si la classe Logement avait une quinzaine d'enfants ? (Chalets, Yourte, Troglodytique...)
+
+        Ecrire une méthode en se basant sur la classe générique resout le problème ci-dessus.
+        Néanmoins, si l'on souhaite typer plus précisément, on sera obligé de caster chaque nouvelle variable.
+
+        On comprend donc l'utilisation de la généricité sur cette méthode.
+
+        */
     }
 }
