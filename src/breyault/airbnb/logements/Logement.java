@@ -2,7 +2,7 @@ package breyault.airbnb.logements;
 
 import breyault.airbnb.utilisateurs.Hote;
 
-public abstract class Logement {
+public abstract class Logement implements Comparable<Logement> {
     private String nom;
     private Hote hote;
     private int tarifParNuit;
@@ -41,5 +41,10 @@ public abstract class Logement {
 
     public int getNbVoyageursMax() {
         return nbVoyageursMax;
+    }
+
+    @Override
+    public int compareTo(Logement o) {
+        return this.tarifParNuit - o.tarifParNuit;
     }
 }

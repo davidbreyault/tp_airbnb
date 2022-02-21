@@ -27,4 +27,12 @@ public class Hote extends Personne {
         Hote hote = (Hote) o;
         return super.equals(o) && delaiDeReponse == hote.delaiDeReponse;
     }
+
+    @Override
+    public int compareTo(Personne o) {
+        if (o instanceof Hote) {
+            return this.delaiDeReponse - ((Hote) o).delaiDeReponse;
+        }
+        return 0;
+    }
 }
