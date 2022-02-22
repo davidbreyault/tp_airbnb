@@ -5,6 +5,7 @@ import breyault.airbnb.logements.Logement;
 import breyault.airbnb.logements.Maison;
 import breyault.airbnb.menu.Menu;
 import breyault.airbnb.outils.Compare;
+import breyault.airbnb.outils.CompareMoreThanTwo;
 import breyault.airbnb.outils.LogementsDomParser;
 import breyault.airbnb.outils.MaDate;
 import breyault.airbnb.reservations.Reservation;
@@ -96,5 +97,8 @@ public class Main {
         // Comparaison de deux hôtes en fonction de leur délai de réponse
         Compare<Hote> comparaison3 = new Compare<Hote>(david, annie);
         comparaison3.getLower().afficher();
+
+        CompareMoreThanTwo<Logement> comparaison4 = new CompareMoreThanTwo<Logement>(Menu.listLogements);
+        comparaison4.getLower().afficher();
     }
 }
