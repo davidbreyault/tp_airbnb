@@ -29,10 +29,7 @@ public class Hote extends Personne {
     }
 
     @Override
-    public int compareTo(Personne o) {
-        if (o instanceof Hote) {
-            return this.delaiDeReponse - ((Hote) o).delaiDeReponse;
-        }
-        return 0;
+    public int getValueToCompare() {
+        return this.delaiDeReponse;
     }
 }

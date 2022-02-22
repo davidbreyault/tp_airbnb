@@ -1,6 +1,8 @@
 package breyault.airbnb.utilisateurs;
 
-public abstract class Personne implements Comparable<Personne> {
+import breyault.airbnb.outils.Comparable;
+
+public abstract class Personne implements Comparable {
     private String nom;
     private String prenom;
     private int age;
@@ -24,7 +26,7 @@ public abstract class Personne implements Comparable<Personne> {
     }
 
     @Override
-    public int compareTo(Personne o) {
-        return this.age - o.age;
+    public int getValueToCompare() {
+        return this.age;
     }
 }

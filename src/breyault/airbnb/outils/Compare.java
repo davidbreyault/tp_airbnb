@@ -12,13 +12,13 @@ public class Compare <T extends Comparable> {
     }
 
     public T getHigher() {
-        return this.object1.compareTo(this.object2) > 0
+        return this.object1.getValueToCompare() > this.object2.getValueToCompare()
                 ? object1
                 : object2;
     }
 
     public T getLower() {
-        return this.object1.compareTo(object2) < 0
+        return this.object1.getValueToCompare() < this.object2.getValueToCompare()
                 ? object1
                 : object2;
     }

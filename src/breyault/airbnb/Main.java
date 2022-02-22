@@ -24,7 +24,7 @@ public class Main {
         // Personnes
         Hote david = new Hote("Breyault", "David", 29, 24);
         Voyageur jean = new Voyageur("Bonneau", "Jean", 34);
-        Hote gabrielle = new Hote("Mahle", "Annie", 32, 12);
+        Hote annie = new Hote("Mahle", "Annie", 32, 12);
 
         // Logements
         Logement maison = new Maison("maison", david, 100, "31 rue Colbert, 37000, TOURS", 140, 6, 280, true);
@@ -94,7 +94,7 @@ public class Main {
         Compare<Personne> comparaison2 = new Compare<Personne>(david, jean);
         comparaison2.getHigher().afficher();
         // Comparaison de deux hôtes en fonction de leur délai de réponse
-        Compare<Hote> comparaison3 = new Compare<Hote>(david, gabrielle);
+        Compare<Hote> comparaison3 = new Compare<Hote>(david, annie);
         comparaison3.getLower().afficher();
     }
 }
