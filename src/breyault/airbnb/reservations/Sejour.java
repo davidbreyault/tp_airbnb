@@ -5,7 +5,7 @@ import breyault.airbnb.outils.MaDate;
 
 import java.util.Date;
 
-public abstract class Sejour implements SejourInterface {
+public abstract class Sejour implements SejourInterface, Cloneable {
     private Date dateArrivee;
     private int nbNuits;
     private Logement logement;
@@ -68,4 +68,16 @@ public abstract class Sejour implements SejourInterface {
     }
 
     public abstract void miseAJourDuTarif();
+
+    @Override
+    protected Object clone() {
+        Sejour sejourClone = null;
+        try {
+            sejourClone = (Sejour) super.clone();
+            sejourClone.dateArrivee = (Date) this.dateArrivee.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return sejourClone;
+    }
 }

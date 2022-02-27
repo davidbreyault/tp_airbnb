@@ -59,6 +59,7 @@ public class Main {
 
         try {
             Reservation reservation = new Reservation(sejour, jean);
+            reservation.payer();
             sejour.setLogement(maison);
             reservation.afficher();
         } catch (Exception e) {
