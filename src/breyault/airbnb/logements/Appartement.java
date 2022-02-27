@@ -21,6 +21,10 @@ public class Appartement extends Logement {
         System.out.println("Balcon : " + (this.superficieBalcon > 0 ? "Oui (" + this.superficieBalcon + "m2)" : "Non"));
     }
 
+    public int getSuperficieBalcon() {
+        return superficieBalcon;
+    }
+
     /**
      *
      * @param numeroEtage Le numéro de l'étage de l'appartement.

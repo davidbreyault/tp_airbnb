@@ -60,13 +60,13 @@ public class Main {
         ArrayList<Hote> singletonListHotes = AirBnbData.getInstance().getListHotes();
         ArrayList<Logement> singletonListLogements = AirBnbData.getInstance().getListLogements();
 
-        System.out.println("Nombre d'hôtes : " + singletonListHotes.size());
-        System.out.println("Nombre de logements : " + singletonListLogements.size() + "\n");
-
-        for (int i = 0; i < singletonListLogements.size(); i++) {
-            singletonListLogements.get(i).afficher();
-            System.out.println("");
-        }
+//        System.out.println("Nombre d'hôtes : " + singletonListHotes.size());
+//        System.out.println("Nombre de logements : " + singletonListLogements.size() + "\n");
+//
+//        for (int i = 0; i < singletonListLogements.size(); i++) {
+//            singletonListLogements.get(i).afficher();
+//            System.out.println("");
+//        }
 
 //        // Test TP 7 - 1.1
 //        System.out.println("Recherche : ");
@@ -109,5 +109,23 @@ public class Main {
 //
 //        CompareMoreThanTwo<Logement> comparaison4 = new CompareMoreThanTwo<Logement>(Menu.listLogements);
 //        comparaison4.getLower().afficher();
+
+        Search.Builder searchBuilder = new Search.Builder(2)
+                .tarifMinParNuit(100)
+                .tarifMaxParNuit(250)
+                .possedePiscine(true)
+        ;
+        Search criteria = searchBuilder.build();
+
+        ArrayList<Logement> logements = criteria.result();
+
+        if (logements.size() > 0) {
+            for (Logement logement : logements) {
+                System.out.println("");
+                logement.afficher();
+            }
+        } else {
+            System.err.println("Aucun logement ne correspond à vos critères.");
+        }
     }
 }
