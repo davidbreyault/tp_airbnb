@@ -8,10 +8,7 @@ import breyault.airbnb.outils.Compare;
 import breyault.airbnb.outils.CompareMoreThanTwo;
 import breyault.airbnb.outils.LogementsDomParser;
 import breyault.airbnb.outils.MaDate;
-import breyault.airbnb.reservations.Reservation;
-import breyault.airbnb.reservations.Sejour;
-import breyault.airbnb.reservations.SejourCourt;
-import breyault.airbnb.reservations.SejourLong;
+import breyault.airbnb.reservations.*;
 import breyault.airbnb.utilisateurs.Hote;
 import breyault.airbnb.utilisateurs.Personne;
 import breyault.airbnb.utilisateurs.Voyageur;
@@ -40,15 +37,10 @@ public class Main {
         int sNbNuits = 7;
         Date sDate = date;
         Logement sLogement = appartement;
-        int sNbVoyageursMax = 2;
+        int sNbVoyageurs = 2;
 
         // Séjours
-        Sejour sejour;
-        if (sNbNuits < 6) {
-            sejour = new SejourCourt(sDate, sNbNuits, sLogement, sNbVoyageursMax);
-        } else {
-            sejour = new SejourLong(sDate, sNbNuits, sLogement, sNbVoyageursMax);
-        }
+        Sejour sejour = SejourFactory.buildSejour(sDate, sNbNuits, sLogement, sNbVoyageurs);
 
 //        // TP_8 - 1.1, 1.3
 //        Date date2 = sejour.getDateArrivee();
