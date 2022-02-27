@@ -4,10 +4,7 @@ import breyault.airbnb.logements.Appartement;
 import breyault.airbnb.logements.Logement;
 import breyault.airbnb.logements.Maison;
 import breyault.airbnb.menu.Menu;
-import breyault.airbnb.outils.Compare;
-import breyault.airbnb.outils.CompareMoreThanTwo;
-import breyault.airbnb.outils.LogementsDomParser;
-import breyault.airbnb.outils.MaDate;
+import breyault.airbnb.outils.*;
 import breyault.airbnb.reservations.*;
 import breyault.airbnb.utilisateurs.Hote;
 import breyault.airbnb.utilisateurs.Personne;
@@ -16,6 +13,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Main {
@@ -59,39 +57,32 @@ public class Main {
             System.err.println("Le logement n'existe pas");
         }
 
-        try {
-            LogementsDomParser.parseData("src/breyault/airbnb/data/logements.xml", Menu.listHotes, Menu.listLogements);
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        ArrayList<Hote> singletonListHotes = AirBnbData.getInstance().getListHotes();
+        ArrayList<Logement> singletonListLogements = AirBnbData.getInstance().getListLogements();
+
+        System.out.println("Nombre d'hôtes : " + singletonListHotes.size());
+        System.out.println("Nombre de logements : " + singletonListLogements.size() + "\n");
+
+        for (int i = 0; i < singletonListLogements.size(); i++) {
+            singletonListLogements.get(i).afficher();
+            System.out.println("");
         }
 
-//        System.out.println("Nombre d'hôtes : " + Menu.listHotes.size());
-//        System.out.println("Nombre de logements : " + Menu.listLogements.size() + "\n");
-//
-//        for (int i = 0; i < Menu.listLogements.size(); i++) {
-//            Menu.listLogements.get(i).afficher();
-//            System.out.println("");
-//        }
-
-        // Test TP 7 - 1.1
+//        // Test TP 7 - 1.1
 //        System.out.println("Recherche : ");
 //        try {
 //            Menu.findMaisonByName("Maison 9").afficher();
 //        } catch (NullPointerException e) {
 //            System.err.println("Ce logement n'existe pas !");
 //        }
-
-        // Test TP 7 - 1.2
-        Logement maison1 = Menu.findLogementByName("Maison 1");
-        Maison maison2 = (Maison) Menu.findLogementByName("Maison 2");
-
-        // Test TP 7 - 1.3
-        Appartement appartement3 = Menu.findLogementByNameWithGenericity("Appartement 3");
-        // appartement3.afficher();
+//
+//        // Test TP 7 - 1.2
+//        Logement maison1 = Menu.findLogementByName("Maison 1");
+//        Maison maison2 = (Maison) Menu.findLogementByName("Maison 2");
+//
+//        // Test TP 7 - 1.3
+//        Appartement appartement3 = Menu.findLogementByNameWithGenericity("Appartement 3");
+//        appartement3.afficher();
 
         /*
 
