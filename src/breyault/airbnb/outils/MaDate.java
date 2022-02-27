@@ -4,6 +4,10 @@ import java.util.Date;
 
 public class MaDate extends Date {
 
+    public MaDate(long timestamp) {
+        super(timestamp);
+    }
+
     /**
      *
      * @param year L'année

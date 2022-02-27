@@ -3,9 +3,9 @@ package breyault.airbnb.utilisateurs;
 import breyault.airbnb.outils.Comparable;
 
 public abstract class Personne implements Comparable {
-    private String nom;
-    private String prenom;
-    private int age;
+    private final String nom;
+    private final String prenom;
+    private final int age;
 
     public Personne(String nom, String prenom, int age) {
         this.nom = nom;

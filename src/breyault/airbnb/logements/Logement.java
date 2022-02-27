@@ -4,12 +4,12 @@ import breyault.airbnb.outils.Comparable;
 import breyault.airbnb.utilisateurs.Hote;
 
 public abstract class Logement implements Comparable {
-    private String nom;
-    private Hote hote;
-    private int tarifParNuit;
-    private String adresse;
-    private int superficie;
-    private int nbVoyageursMax;
+    private final String nom;
+    private final Hote hote;
+    private final int tarifParNuit;
+    private final String adresse;
+    private final int superficie;
+    private final int nbVoyageursMax;
 
     public Logement(String nom, Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax) {
         this.nom = nom;

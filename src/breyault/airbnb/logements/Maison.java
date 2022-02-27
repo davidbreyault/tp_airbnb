@@ -4,8 +4,8 @@ import breyault.airbnb.utilisateurs.Hote;
 
 public class Maison extends Logement {
 
-    private int superficieJardin;
-    private boolean possedePiscine;
+    private final int superficieJardin;
+    private final boolean possedePiscine;
 
     public Maison(String nom, Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax, int superficieJardin, boolean possedePiscine) {
         super(nom, hote, tarifParNuit, adresse, superficie, nbVoyageursMax);

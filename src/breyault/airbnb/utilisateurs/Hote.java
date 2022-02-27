@@ -2,7 +2,7 @@ package breyault.airbnb.utilisateurs;
 
 public class Hote extends Personne {
 
-    private int delaiDeReponse;
+    private final int delaiDeReponse;
 
     public Hote(String nom, String prenom, int age, int delaiDeReponse) {
         super(nom, prenom, age);

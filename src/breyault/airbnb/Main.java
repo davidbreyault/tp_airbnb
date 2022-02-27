@@ -10,6 +10,7 @@ import breyault.airbnb.outils.LogementsDomParser;
 import breyault.airbnb.outils.MaDate;
 import breyault.airbnb.reservations.Reservation;
 import breyault.airbnb.reservations.Sejour;
+import breyault.airbnb.reservations.SejourCourt;
 import breyault.airbnb.reservations.SejourLong;
 import breyault.airbnb.utilisateurs.Hote;
 import breyault.airbnb.utilisateurs.Personne;
@@ -18,6 +19,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,12 +36,35 @@ public class Main {
         // Dates
         MaDate date = new MaDate(2022, 9, 2);
 
-        // Séjours
-        Sejour sejour = new SejourLong(date, 7, appartement, 2);
+        // Critères séjour
+        int sNbNuits = 7;
+        Date sDate = date;
+        Logement sLogement = appartement;
+        int sNbVoyageursMax = 2;
 
-        // Réservations
-        Reservation reservation = new Reservation(sejour, jean);
-        // reservation.afficher();
+        // Séjours
+        Sejour sejour;
+        if (sNbNuits < 6) {
+            sejour = new SejourCourt(sDate, sNbNuits, sLogement, sNbVoyageursMax);
+        } else {
+            sejour = new SejourLong(sDate, sNbNuits, sLogement, sNbVoyageursMax);
+        }
+
+//        // TP_8 - 1.1, 1.3
+//        Date date2 = sejour.getDateArrivee();
+//        //System.out.println(date2); // 02/09/2022 ???
+//        //System.out.println(date2.getYear()); // 122 ???
+//        date2.setYear(98);
+//        sejour.afficher();
+
+        try {
+            Reservation reservation = new Reservation(sejour, jean);
+            sejour.setLogement(maison);
+            reservation.afficher();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Le logement n'existe pas");
+        }
 
         try {
             LogementsDomParser.parseData("src/breyault/airbnb/data/logements.xml", Menu.listHotes, Menu.listLogements);
@@ -60,12 +85,12 @@ public class Main {
 //        }
 
         // Test TP 7 - 1.1
-        System.out.println("Recherche : ");
-        try {
-            Menu.findMaisonByName("Maison 9").afficher();
-        } catch (NullPointerException e) {
-            System.err.println("Ce logement n'existe pas !");
-        }
+//        System.out.println("Recherche : ");
+//        try {
+//            Menu.findMaisonByName("Maison 9").afficher();
+//        } catch (NullPointerException e) {
+//            System.err.println("Ce logement n'existe pas !");
+//        }
 
         // Test TP 7 - 1.2
         Logement maison1 = Menu.findLogementByName("Maison 1");
@@ -73,7 +98,7 @@ public class Main {
 
         // Test TP 7 - 1.3
         Appartement appartement3 = Menu.findLogementByNameWithGenericity("Appartement 3");
-//        appartement3.afficher();
+        // appartement3.afficher();
 
         /*
 
@@ -88,17 +113,17 @@ public class Main {
 
         */
 
-        // Comparaison de deux logements en fonction de leur tarif grâce à la classe générique
-        Compare<Logement> comparaison = new Compare<Logement>(maison1, maison2);
-        comparaison.getLower().afficher();
-        // Comparaison de deux personnes en fonction de leur âge
-        Compare<Personne> comparaison2 = new Compare<Personne>(david, jean);
-        comparaison2.getHigher().afficher();
-        // Comparaison de deux hôtes en fonction de leur délai de réponse
-        Compare<Hote> comparaison3 = new Compare<Hote>(david, annie);
-        comparaison3.getLower().afficher();
-
-        CompareMoreThanTwo<Logement> comparaison4 = new CompareMoreThanTwo<Logement>(Menu.listLogements);
-        comparaison4.getLower().afficher();
+//        // Comparaison de deux logements en fonction de leur tarif grâce à la classe générique
+//        Compare<Logement> comparaison = new Compare<Logement>(maison1, maison2);
+//        comparaison.getLower().afficher();
+//        // Comparaison de deux personnes en fonction de leur âge
+//        Compare<Personne> comparaison2 = new Compare<Personne>(david, jean);
+//        comparaison2.getHigher().afficher();
+//        // Comparaison de deux hôtes en fonction de leur délai de réponse
+//        Compare<Hote> comparaison3 = new Compare<Hote>(david, annie);
+//        comparaison3.getLower().afficher();
+//
+//        CompareMoreThanTwo<Logement> comparaison4 = new CompareMoreThanTwo<Logement>(Menu.listLogements);
+//        comparaison4.getLower().afficher();
     }
 }

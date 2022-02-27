@@ -1,6 +1,7 @@
 package breyault.airbnb.reservations;
 
 import breyault.airbnb.logements.Logement;
+import breyault.airbnb.outils.MaDate;
 
 import java.util.Date;
 
@@ -12,11 +13,15 @@ public abstract class Sejour implements SejourInterface {
     protected int tarif;
 
     public Sejour(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
-        this.dateArrivee = dateArrivee;
+        this.dateArrivee = new MaDate(dateArrivee.getTime()); // Copie défensive
         this.nbNuits = nbNuits;
         this.logement = logement;
         this.nbVoyageurs = nbVoyageurs;
         this.miseAJourDuTarif();
+    }
+
+    public Date getDateArrivee() {
+        return new MaDate(this.dateArrivee.getTime()); // Copie défensive
     }
 
     public int getNbNuits() {
@@ -25,6 +30,19 @@ public abstract class Sejour implements SejourInterface {
 
     public Logement getLogement() {
         return logement;
+    }
+
+    /**
+     *
+     * @param logement
+     * @throws IllegalArgumentException Si le logement est null
+     */
+    public void setLogement(Logement logement) throws IllegalArgumentException {
+        if (logement == null) {
+            throw new IllegalArgumentException();
+        }
+        this.logement = logement;
+        this.miseAJourDuTarif();
     }
 
     @Override
